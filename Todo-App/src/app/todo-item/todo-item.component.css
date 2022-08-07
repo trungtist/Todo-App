@@ -1,0 +1,128 @@
+/* ** =================================================
+==================== Todo List Section ================
+======================================================= */
+.todo-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid #f2f3f5;
+
+    padding: 35px 15px;
+
+    font-size: 18px;
+
+    overflow: hidden;
+}   
+
+/* --- hidden for default --- */
+.todo-item .todo-item__checkBox span,
+.todo-item .todo-item__controls {
+    opacity: 0;
+
+    transition: opacity .3s;
+}
+
+.todo-item .todo-item__checkBox {
+    background: #fff;
+
+    margin-right: 2rem;
+
+    width: 28px;
+    height: 28px;
+
+    border: 2px solid #EBEBEB;
+    border-radius: 50%;
+
+    flex-shrink: 0; /* reduce size for flex item */
+
+    transition: background-color .3s;
+}
+
+.todo-item__checkBox span {
+    font-size: 20px;
+    color: #ccc
+}
+
+.todo-item .todo-item__checkBox.completed {
+    background: #16DB65;
+    border-color: #16DB65;
+}
+
+.todo-item .todo-item__checkBox.completed span {
+    color: #000;
+}
+
+.todo-item .todo-item__content {
+    padding: 10px 0;
+
+    transition: opacity .3s;
+}
+
+.todo-item .todo-item__controls {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition: .3s;
+}
+
+.todo-item__controls .control-button {
+    background: #F3F5F7;
+
+    padding: 8px;
+
+    transition: background .3s;
+}
+
+.todo-item__controls .control-button span {
+    color: #555;
+
+    transition: color .3s;
+}
+
+.todo-item__controls .control-button:first-of-type {
+    border-top-left-radius: 4px;
+}
+
+.todo-item__controls .control-button:last-of-type {
+    border-top-right-radius: 4px;
+}
+
+.control-button span {
+    font-size: 20px;
+}
+
+/* ===== HOVER - FOCUS - ACTIVE TODO ITEM PARTS ===== */
+.todo-item:hover .todo-item__checkBox {
+    background-color: #F5F5F5;
+}
+
+.todo-item:hover .todo-item__checkBox span {
+    opacity: 1;
+    transition-delay: .4s;
+}
+
+.todo-item:hover .todo-item__content {
+    opacity: .6;
+}
+
+.todo-item:hover .todo-item__controls {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition-delay: .4s;
+}
+
+.todo-item__controls:hover .control-button {
+    background: #E7ECEF;
+}
+.todo-item__controls:hover .control-button span {
+    color: #122C34
+}
