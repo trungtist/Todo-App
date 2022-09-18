@@ -1,0 +1,24 @@
+<div class="todo-item" *ngIf="todo" [class.completed]="todo.checked" (click)="onEmitCheck()">
+
+  <div class="todo-item__checkBox is-flex is-justify-content-center is-align-items-center">
+    <span class="material-icons">done</span>
+  </div>
+
+  <div class="todo-item__content">
+    {{ todo.content }}
+  </div>
+
+  <div class="todo-item__controls is-flex">
+    <div class="control-button is-flex" (click)="onEmitEdit()">
+      <span class="material-icons">
+        edit
+      </span>
+    </div>
+    <div class="control-button is-flex" (click)="onEmitDelete()">
+      <span class="material-icons">
+        delete
+      </span>
+    </div>
+  </div>
+
+</div>

@@ -14,7 +14,7 @@
       <div class="field is-grouped" style="margin: 0">
         <p class="control is-expanded">
 
-          <input class="input" type="text" placeholder="Type todo text here ...">
+          <input ngModel class="input" type="text" placeholder="Type todo text here ...">
         </p>
 
         <p class="control">
@@ -36,10 +36,18 @@
   <div class="container">
 
     <div class="todo-list">
-
-      <app-todo-item></app-todo-item>
-
+      <ng-container *ngIf="todos">
+        <app-todo-item *ngFor="let todoItem of todos" 
+        [todo]="todoItem"
+        (completeClicked)="toggleCompleted(todoItem)"
+        (deleteClicked)="deleteTodo(todoItem)"
+        >
+        </app-todo-item>
+      </ng-container>
+      
     </div>
-
+    
   </div>
 </section>
+
+

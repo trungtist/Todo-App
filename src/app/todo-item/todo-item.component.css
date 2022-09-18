@@ -16,7 +16,7 @@
     font-size: 18px;
 
     overflow: hidden;
-}   
+}
 
 /* --- hidden for default --- */
 .todo-item .todo-item__checkBox span,
@@ -37,7 +37,8 @@
     border: 2px solid #EBEBEB;
     border-radius: 50%;
 
-    flex-shrink: 0; /* reduce size for flex item */
+    flex-shrink: 0;
+    /* reduce size for flex item */
 
     transition: background-color .3s;
 }
@@ -47,14 +48,6 @@
     color: #ccc
 }
 
-.todo-item .todo-item__checkBox.completed {
-    background: #16DB65;
-    border-color: #16DB65;
-}
-
-.todo-item .todo-item__checkBox.completed span {
-    color: #000;
-}
 
 .todo-item .todo-item__content {
     padding: 10px 0;
@@ -99,7 +92,7 @@
     font-size: 20px;
 }
 
-/* ===== HOVER - FOCUS - ACTIVE TODO ITEM PARTS ===== */
+/* ===== HOVER - FOCUS - ACTIVE (COMPLETE) TODO ITEM PARTS ===== */
 .todo-item:hover .todo-item__checkBox {
     background-color: #F5F5F5;
 }
@@ -109,6 +102,7 @@
     transition-delay: .4s;
 }
 
+.todo-item.completed .todo-item__content,
 .todo-item:hover .todo-item__content {
     opacity: .6;
 }
@@ -120,9 +114,24 @@
     transition-delay: .4s;
 }
 
-.todo-item__controls:hover .control-button {
+.todo-item__controls .control-button:hover {
     background: #E7ECEF;
 }
-.todo-item__controls:hover .control-button span {
+
+.todo-item__controls .control-button:hover span {
+    color: #122C34
+}
+
+.todo-item__controls .control-button:last-of-type:hover span {
+    color: hsla(350, 93%, 61%, 1)
+}
+
+.todo-item.completed .todo-item__checkBox {
+    background-color: rgb(88, 234, 59);
+    border-color: rgb(88, 234, 59);
+}
+
+.todo-item.completed .todo-item__checkBox span{
+    opacity: 1;
     color: #122C34
 }
