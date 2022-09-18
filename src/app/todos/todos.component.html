@@ -35,19 +35,23 @@
 <section class="section">
   <div class="container">
 
-    <div class="todo-list">
-      <ng-container *ngIf="todos">
-        <app-todo-item *ngFor="let todoItem of todos" 
-        [todo]="todoItem"
-        (completeClicked)="toggleCompleted(todoItem)"
-        (deleteClicked)="deleteTodo(todoItem)"
-        >
+    <div class="todo-list" *ngIf="todos.length != 0;else noTasks">
+      <ng-container *ngFor="let todoItem of todos">
+
+        <app-todo-item [todo]="todoItem" (completeClicked)="toggleCompleted(todoItem)"
+          (deleteClicked)="deleteTodo(todoItem)">
         </app-todo-item>
+
       </ng-container>
-      
     </div>
-    
+
   </div>
 </section>
 
-
+<ng-template #noTasks>
+  <div class="notification is-warning">
+    <p class="title is-5">
+      Let's add more <strong>Tasks</strong>!
+    </p>
+  </div>
+</ng-template>
